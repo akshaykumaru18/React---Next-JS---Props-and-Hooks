@@ -1,11 +1,10 @@
 "use client";
 import BookCard from "./components/BookCard"
+
 import {useState} from 'react'
 export default function Home(){
-  //list = [1,2,3,4,5,6,7]
-  //JSON (Javascript object notation)
- 
-   const [cart, setCart]= useState([]);
+
+   const [cart,setCart] = useState([]); //
 
   const books = [
     {
@@ -35,7 +34,8 @@ export default function Home(){
         desc={element.desc}
         bookImg={element.img}
           onBorrowClick={(e)=>{
-            cart.push(element);
+           // cart.push(element);
+           setCart(cart.filter((book)=> book != element));
         }}
      />
       })
@@ -51,12 +51,13 @@ export default function Home(){
           onBorrowClick={(e)=>{
             //JAVASCRIPT SPREAD OPERATER
             setCart([...cart,element])
-            console.log(`Cart Items : ${cart}`)
+          // cart.push(element);
+            //console.log(`Cart Items : ${cart}`)
         }}
      />
       })
     }
-
+{/* 
     <CategoryTitle title= {"Programming Books"} 
     desc = {"We have 200+ books related to Programming"}/>
     <div style={{
@@ -102,7 +103,7 @@ export default function Home(){
     title={"Design and Analysis of Algorithms"}
     desc={"How to work with c and DSA"
     }
-    bookImg={"https://m.media-amazon.com/images/I/714+tgyHDRL._UF1000,1000_QL80_.jpg"}/>
+    bookImg={"https://m.media-amazon.com/images/I/714+tgyHDRL._UF1000,1000_QL80_.jpg"}/> */}
   </div>
 }
 
